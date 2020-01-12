@@ -1,5 +1,6 @@
 #pragma once
 #include "stdio.h"
+#include "Character.h"
 #include "windows.h"
 #include <io.h>
 #include <fcntl.h>
@@ -24,12 +25,14 @@ public:
 	~Map();
 	void drawMap();
 	void drawChar();
+	Character * getCharacter();
+	bool ifCanVisited(int _x, int _y);
+	int getState(int _x, int _y);
+	void setState(int _x, int _y, int state);
 private:
 	int width;
 	int height;
-	int posx;
-	int posy;
 	int ** MapArray;
+	Character * character;
 	void drawTile(int type);
-	
 };
